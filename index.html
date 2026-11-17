@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rótulos aprovados · UP Co.</title>
+<meta name="description" content="Galeria dos rótulos aprovados da UP Co.: tampas e tarjas, com os PDFs de impressão.">
+<style>
+  :root { color-scheme: light; --fundo:#f5f1e8; --painel:#ffffff; --tinta:#1d1a14; --suave:#6b6252; --linha:#ddd5c4; --ouro:#9a6b12; --ouro-claro:#fff6dc; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { color-scheme: dark; --fundo:#14110c; --painel:#1c1812; --tinta:#f3ecdd; --suave:#b5aa96; --linha:#332c20; --ouro:#dfb76c; --ouro-claro:#2a2214; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--fundo); color: var(--tinta); font: 16px/1.55 system-ui, "Segoe UI", sans-serif; padding-inline: 20px; }
+  main { max-width: 1100px; margin: 0 auto; padding-block: 36px 56px; }
+  h1 { font-size: clamp(26px, 4vw, 38px); margin: 0 0 6px; letter-spacing: .01em; }
+  .sub { color: var(--suave); margin: 0 0 20px; }
+  .aviso { background: var(--ouro-claro); border: 1px solid var(--ouro); border-radius: 12px; padding: 12px 16px; margin: 0 0 28px; font-size: 15px; }
+  .grade { display: grid; gap: 22px; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+  article { background: var(--painel); border: 1px solid var(--linha); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }
+  article img { display: block; width: 100%; height: auto; background: #0d0d0d; }
+  .corpo { padding: 16px 18px 20px; display: flex; flex-direction: column; gap: 6px; }
+  h2 { font-size: 20px; margin: 0; }
+  .meta { color: var(--suave); font-size: 14px; margin: 0; }
+  .botoes { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+  a.botao { display: inline-block; padding: 9px 16px; border-radius: 999px; border: 1px solid var(--ouro); color: var(--tinta); text-decoration: none; font-weight: 600; font-size: 14px; }
+  a.botao.principal { background: var(--ouro); color: #fff; }
+  a.botao:hover, a.botao:focus-visible { outline: 2px solid var(--ouro); outline-offset: 2px; }
+  footer { color: var(--suave); font-size: 14px; margin-top: 34px; }
+  footer a { color: inherit; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Rótulos aprovados</h1>
+  <p class="sub">UP Co. · só entram aqui as peças que o Rafael aprovou.</p>
+  <p class="aviso"><strong>Atenção:</strong> Anvisa, EAN, composição, fabricante, SAC e a gramatura "150 g" são <strong>provisórios</strong> (copiados do Pistache antigo) e precisam ser confirmados com o cliente antes de imprimir. Falta a prova impressa 1:1.</p>
+
+  <div class="grade">
+    <article>
+      <a href="pistache-creme-matte/prova-tampa-e-tarja.jpg"><img src="pistache-creme-matte/prova-tampa-e-tarja.jpg" alt="Prova do Pistache creme matte: tampa com âncoras nos claims e tarja" loading="lazy"></a>
+      <div class="corpo">
+        <h2>Pistache · Creme Matte Modelador</h2>
+        <p class="meta">Rota do Caribe · linha Rota Evolução · aprovada em 17/11/2026</p>
+        <div class="botoes">
+          <a class="botao principal" href="pistache-creme-matte/impressao-tampa.pdf">Tampa (PDF)</a>
+          <a class="botao principal" href="pistache-creme-matte/impressao-tarja.pdf">Tarja (PDF)</a>
+          <a class="botao" href="pistache-creme-matte/LEIA-ME.md">LEIA-ME</a>
+        </div>
+      </div>
+    </article>
+
+    <article>
+      <a href="elegance-premium/prova-tampa-e-tarja.jpg"><img src="elegance-premium/prova-tampa-e-tarja.jpg" alt="Prova da Elegance Premium: tampa com arco turquesa e tarja de pergaminho" loading="lazy"></a>
+      <div class="corpo">
+        <h2>Elegance Premium · Pasta Modeladora</h2>
+        <p class="meta">Rota do Caribe · Vitamina B5 ⚓ B7 · aprovada em 17/11/2026</p>
+        <div class="botoes">
+          <a class="botao principal" href="elegance-premium/impressao-tampa.pdf">Tampa (PDF)</a>
+          <a class="botao principal" href="elegance-premium/impressao-tarja.pdf">Tarja (PDF)</a>
+          <a class="botao" href="elegance-premium/LEIA-ME.md">LEIA-ME</a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <footer>Medidas: tampa folha 95 × 95 mm, corte Ø 89,1 mm · tarja folha 196 × 23 mm, corte 190 × 17 mm · PDFs em CMYK, textos em curvas. <a href="https://github.com/brutob2b-pixel/rotulos-aprovados">Repositório no GitHub</a>.</footer>
+</main>
+</body>
+</html>
