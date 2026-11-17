@@ -1,0 +1,36 @@
+[
+ {
+  "id": "pistache-creme-matte",
+  "marca": "Rota do Caribe",
+  "nome": "Pistache · Creme Matte Modelador",
+  "tampa": "pistache-creme-matte/tampa.webp",
+  "tarja": "pistache-creme-matte/tarja.webp",
+  "tarjaHd": "pistache-creme-matte/tarja.webp",
+  "thumb": "thumbs/pistache-creme-matte.webp",
+  "pote": {
+   "tarjaMm": [
+    190,
+    17
+   ],
+   "respiroMm": 1.5,
+   "corpoMm": 22
+  }
+ },
+ {
+  "id": "elegance-premium",
+  "marca": "Rota do Caribe",
+  "nome": "Elegance Premium · Pasta Modeladora",
+  "tampa": "elegance-premium/tampa.webp",
+  "tarja": "elegance-premium/tarja.webp",
+  "tarjaHd": "elegance-premium/tarja.webp",
+  "thumb": "thumbs/elegance-premium.webp",
+  "pote": {
+   "tarjaMm": [
+    190,
+    17
+   ],
+   "respiroMm": 1.5,
+   "corpoMm": 22
+  }
+ }
+]

@@ -17,3 +17,6 @@ Anvisa, EAN, composição, fabricante, SAC e a gramatura "150 g" são os do Pist
 
 ## Como a arte é gerada
 Os PDFs saem do gerador de rótulos da UP Co. (scripts em Node, fora deste repositório). Aqui ficam só os resultados aprovados, para tirar os arquivos pesados do computador.
+
+## Simulador 3D
+Pasta [`simulador/`](simulador): pote preto com a tampa e a tarja de cada peça aprovada, para girar e ver de perto. Na página (GitHub Pages) abra `simulador/?marca=Rota%20do%20Caribe`. Cada peça aprovada nova entra em `simulador/artes/artes.json`.
