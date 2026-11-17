@@ -7,7 +7,7 @@
   "tarja": "pistache-creme-matte/tarja.webp",
   "tarjaHd": "pistache-creme-matte/tarja.webp",
   "thumb": "thumbs/pistache-creme-matte.webp",
-  "pdf": "pistache-creme-matte.pdf",
+  "pdf": "../../pistache-creme-matte/impressao-folha-unica.pdf",
   "pote": {
    "tarjaMm": [
     190,
@@ -25,7 +25,7 @@
   "tarja": "elegance-premium/tarja.webp",
   "tarjaHd": "elegance-premium/tarja.webp",
   "thumb": "thumbs/elegance-premium.webp",
-  "pdf": "elegance-premium.pdf",
+  "pdf": "../../elegance-premium/impressao-folha-unica.pdf",
   "pote": {
    "tarjaMm": [
     190,
