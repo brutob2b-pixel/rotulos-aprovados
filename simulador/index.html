@@ -822,10 +822,7 @@ Object.entries(slots).forEach(([which, s]) => {
 /* ---------- export PDF: 4 cenários em alta resolução ---------- */
 const polar = (az, el) => [Math.sin(az) * Math.cos(el), Math.sin(el), Math.cos(az) * Math.cos(el)];
 const CENAS = [
-  { nome: '3/4 frontal',   dir: polar(AZ_FRENTE - 0.40, 0.35) },            // centro da tarja ainda visível
-  { nome: 'frente',        dir: polar(AZ_FRENTE, 0.16) },                   // centro da tarja de frente
-  { nome: 'topo',          dir: polar(AZ_FRENTE, 0.97) },                   // arte da tampa nivelada
-  { nome: '3/4 posterior', dir: polar(AZ_FRENTE + Math.PI + 0.70, 0.26) }
+  { nome: 'pote', dir: polar(AZ_FRENTE - 0.40, 0.35) }   // 3/4 frontal: tarja e tampa no contexto do pote
 ];
 const PX = [3300, 2160]; // ~300 dpi, proporção da área útil do A4 paisagem
 
@@ -960,16 +957,38 @@ function dataURLtoBytes(u) {
   return a;
 }
 
-pdf.addEventListener('click', () => {
+// página 2: a arte da tarja inteira, em fundo escuro, para ler os textos
+function carregarImagem(url) {
+  return new Promise((ok, falha) => { const im = new Image(); im.onload = () => ok(im); im.onerror = () => falha(new Error('imagem ' + url)); im.src = url; });
+}
+async function renderPlana(url) {
+  if (!url) return null;
+  const im = await carregarImagem(url);
+  const cv = document.createElement('canvas'); cv.width = PX[0]; cv.height = PX[1];
+  const g = cv.getContext('2d');
+  g.fillStyle = '#1d1714'; g.fillRect(0, 0, PX[0], PX[1]);
+  const escala = Math.min(PX[0] * 0.84 / im.naturalWidth, PX[1] * 0.84 / im.naturalHeight);
+  const w = im.naturalWidth * escala, h = im.naturalHeight * escala;
+  g.drawImage(im, (PX[0] - w) / 2, (PX[1] - h) / 2, w, h);
+  return { data: cv.toDataURL('image/jpeg', 0.94), dim: [PX[0], PX[1]] };
+}
+
+pdf.addEventListener('click', async () => {
   rot(pdf, 'Gerando…');
-  setTimeout(() => {
+  setTimeout(async () => {
     try {
-      const shots = CENAS.map(c => renderCena(c.dir, c.roll));
+      const base = kitAtivo ? (kitAtivo.marca || MARCA_PADRAO) + ' ' + kitAtivo.nome : 'Mockup 3D';
+      const shots = [renderCena(CENAS[0].dir, CENAS[0].roll)];
+      const tarja = await renderPlana(kitAtivo && (kitAtivo.dataWrapHd || kitAtivo.dataWrap));
+      if (tarja) shots.push(tarja);
+      const tampa = await renderPlana(kitAtivo && (kitAtivo.fullTop || kitAtivo.dataTop));
+      if (tampa) shots.push(tampa);
+      const partes = ['pote', 'tarja', 'tampa'];
       const blob = montarPDF(shots.map(s => dataURLtoBytes(s.data)), shots.map(s => s.dim),
-                             CENAS.map(c => (kitAtivo ? (kitAtivo.marca || MARCA_PADRAO) + ' ' + kitAtivo.nome : 'Mockup 3D') + ' - ' + c.nome));
+                             shots.map((s, i) => base + ' - ' + partes[i]));
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
-      a.href = url; a.download = 'rotulo-mockup-4-cenarios.pdf';
+      a.href = url; a.download = 'rotulo-mockup.pdf';
       document.body.appendChild(a); a.click(); a.remove();
       setTimeout(() => URL.revokeObjectURL(url), 5000);
     } catch (e) {
