@@ -19,13 +19,13 @@
  },
  {
   "id": "elegance-premium",
-  "marca": "Rota do Caribe",
+  "marca": "Veleiros do Caribe",
   "nome": "Elegance Premium · Pasta Modeladora",
   "tampa": "elegance-premium/tampa.webp",
   "tarja": "elegance-premium/tarja.webp",
   "tarjaHd": "elegance-premium/tarja.webp",
   "thumb": "thumbs/elegance-premium.webp",
-  "pdf": "../../elegance-premium/impressao-folha-unica.pdf",
+  "pdf": null,
   "pote": {
    "tarjaMm": [
     190,
